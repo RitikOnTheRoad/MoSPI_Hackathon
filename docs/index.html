@@ -3,61 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Per person monthly consumption of rice and pulses in India</title>
+    <title>📊 Analysis of Household Consumption and Expenditure Patterns in India</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F9FAFC;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #2C3E50;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .links {
+            margin-top: 20px;
+        }
+        .links a {
+            display: block;
+            padding: 12px;
+            margin: 8px auto;
+            background: #FF6F61;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            width: 80%;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .links a:hover {
+            background: #E74C3C;
+        }
+        .highlight {
+            color: #FF5733;
+            font-weight: bold;
+        }
+        .emoji {
+            font-size: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Per person monthly consumption of rice and pulses in India</h1>
-    <h3>Select a State or Union Territory:</h3>
-    <select id="imageSelector" onchange="changeImage()">
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/All-India.png">All States</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Andhra%20Pradesh.png">Andhra Pradesh</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Arunachal%20Pradesh.png">Arunachal Pradesh</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Assam.png">Assam</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Bihar.png">Bihar</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Chhattisgarh.png">Chhattisgarh</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Goa.png">Goa</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Gujarat.png">Gujarat</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Haryana.png">Haryana</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Himachal%20Pradesh.png">Himachal Pradesh</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Jharkhand.png">Jharkhand</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Karnataka.png">Karnataka</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Kerala.png">Kerala</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Madhya%20Pradesh.png">Madhya Pradesh</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Maharashtra.png">Maharashtra</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Manipur.png">Manipur</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Meghalaya.png">Meghalaya</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Mizoram.png">Mizoram</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Nagaland.png">Nagaland</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Odisha.png">Odisha</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Punjab.png">Punjab</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Rajasthan.png">Rajasthan</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Sikkim.png">Sikkim</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Tamil%20Nadu.png">Tamil Nadu</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Telangana.png">Telangana</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Tripura.png">Tripura</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Uttar%20Pradesh.png">Uttar Pradesh</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Uttarakhand.png">Uttarakhand</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/West%20Bengal.png">West Bengal</option>
+    <div class="container">
+        <h1>📊 Analysis of Household Consumption and Expenditure Patterns in India</h1>
+        <p>
+            This project explores household <span class="highlight">expenditure</span>, <span class="highlight">food consumption</span>, 
+            and <span class="highlight">demographic trends</span> across India. 
+            The study provides insights into how different family sizes, economic classes, and regions impact spending patterns and essential food consumption.
+        </p>
+        <p>
+            The visualizations cover <b>MPCE trends</b>, <b>rice & pulses consumption</b>, <b>family size distribution</b>, and <b>statewise sex ratio</b>. 
+            📉📈 These insights can be useful for policymakers, researchers, and economists studying India's economic diversity.
+        </p>
 
+        <h2>🔍 Explore the Visualizations</h2>
+        <div class="links">
+            <a href="avg mpce for family size.html">📈 Average MPCE for Different Family Sizes</a>
+            <a href="distribution of family size for different fractile class.html">🏠 Family Size Distribution Across Economic Classes</a>
+            <a href="monthly consumption(Rs) of rice and pulses.html">🍚 Monthly Consumption (₹) of Rice and Pulses</a>
+            <a href="monthly per capita expenditure.html">💰 Monthly Per Capita Expenditure (MPCE)</a>
+            <a href="rice cosumption.html">🌾 Rice and wheat Consumption Trends Across States</a>
+            <a href="sex ratio sunburst.html">🚻 Statewise Sex Ratio and Demographic Trends</a>
+        </div>
 
-        
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Chandigarh.png">Chandigarh</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Dadra%20%26%20Nagar%20Haveli%20and%20Daman%20%26%20Diu.png">Dadra & Nagar Haveli and Daman & Diu</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Ladakh.png">Ladakh</option>
-        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/Puducherry.png">Puducherry</option>
-
-    </select>
-
-    <br><br>
-
-    <img id="displayImage" src="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ritik/value%20of%20consumption%20of%20all%20classes%20in%2030%20days%20for%20all%20states%20rural%20and%20urban/All-India.png" alt="Selected Image" width="1500",height="300">
-
-    <script>
-        document.getElementById("imageSelector").addEventListener("change", function() {
-            var selectedValue = this.value; // Get selected value
-            document.getElementById("displayImage").src = selectedValue; // Change image source
-        });
-    </script>
-
+        <p>
+            📌 <b>Conclusion:</b> The data highlights regional disparities in consumption and spending, 
+            helping us understand the <i>economic behavior of Indian households</i>. 
+            <br>🌍 Let’s dive into the numbers and trends!
+        </p>
+    </div>
 </body>
 </html>
