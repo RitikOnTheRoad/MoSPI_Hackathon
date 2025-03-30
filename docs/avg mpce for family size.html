@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avg MPCE(Rs) for different family size.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        img {
+            width: 800px;  /* Adjust size as needed */
+            height: auto;
+            margin-top: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Avg MonthlyPerCapityExpenditure(MPCE) in Rs for different family size.</h1>
+    
+
+    <label for="imageDropdown">Select a state:</label>
+    <select id="imageDropdown" onchange="changeImage()">
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/All-India.png">All India</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Andhra%20Pradesh.png">Andhra Pradesh</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Arunachal%20Pradesh.png">Arunachal Pradesh</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Assam.png">Assam</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Bihar.png">Bihar</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Chhattisgarh.png">Chhattisgarh</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Goa.png">Goa</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Gujarat.png">Gujarat</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Haryana.png">Haryana</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Himachal%20Pradesh.png">Himachal Pradesh</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Jharkhand.png">Jharkhand</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Karnataka.png">Karnataka</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Kerala.png">Kerala</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Madhya%20Pradesh.png">Madhya Pradesh</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Maharashtra.png">Maharashtra</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Manipur.png">Manipur</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Meghalaya.png">Meghalaya</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Mizoram.png">Mizoram</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Nagaland.png">Nagaland</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Odisha.png">Odisha</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Punjab.png">Punjab</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Rajasthan.png">Rajasthan</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Sikkim.png">Sikkim</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Tamil%20Nadu.png">Tamil Nadu</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Telangana.png">Telangana</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Tripura.png">Tripura</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Uttar%20Pradesh.png">Uttar Pradesh</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/Uttarakhand.png">Uttarakhand</option>
+        <option value="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/West%20Bengal.png">West Bengal</option>
+
+    </select>
+
+
+
+
+
+
+
+
+
+
+
+    <br><br>
+
+    <img id="displayedImage" src="https://raw.githubusercontent.com/RitikOnTheRoad/MoSPI_Hackathon/refs/heads/main/Ananda/1/2/All-India.png" alt="Selected Image">
+
+    <script>
+        function changeImage() {
+            var dropdown = document.getElementById("imageDropdown");
+            var image = document.getElementById("displayedImage");
+            image.src = dropdown.value;
+        }
+    </script>
+
+</body>
+</html>
